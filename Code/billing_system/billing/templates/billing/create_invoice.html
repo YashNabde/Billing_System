@@ -1,0 +1,25 @@
+{% extends 'billing/base.html' %}
+
+{% block title %}Create Invoice{% endblock %}
+
+{% block content %}
+    <h2 class="text-center text-primary">Create a New Invoice</h2>
+
+    <div class="card shadow p-4 mt-3">
+        <form method="POST">
+            {% csrf_token %}
+            
+            <div class="mb-3">
+                <label class="form-label">Customer</label>
+                {{ form.customer }}
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Total Amount</label>
+                {{ form.total_amount }}
+            </div>
+
+            <button type="submit" class="btn btn-success w-100">Create Invoice</button>
+        </form>
+    </div>
+{% endblock %}
